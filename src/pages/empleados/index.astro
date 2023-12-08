@@ -1,0 +1,7 @@
+---
+import DefaultLayout from '../../modules/shared/infrastructure/default-layout.astro';
+import { EmpleadosPage } from '../../modules/empleados/pages/empleados.page'
+---
+<DefaultLayout>
+  <EmpleadosPage client:only="react" />
+</DefaultLayout>

@@ -19,16 +19,20 @@ export const EmployeesUtilityModal = ({
   }
 
   const handleOnOk = async () => {
+    const dimissLoader = message.loading('Guardando datos...', 0)
     setSaving(true)
     try {
       const values = await empleadoForm.validateFields()
       createEmpleado && await createEmpleado({ ...values })
       resetModal()
+      refetchEmpleados()
+      message.success('Datos guardados correctamente')
     } catch (e) {
       message.error('Ocurrió un error al guardar los datos')
       console.error(e)
     } finally {
       setSaving(false)
+      dimissLoader()
     }
   }
 
@@ -77,7 +81,7 @@ export const EmployeesUtilityModal = ({
           <Input />
         </Form.Item>
         <Form.Item
-          label="Email"
+          label="Email asignado"
           name="email"
           rules={[{ required: true, message: 'Por favor ingresa el email del empleado' }]}>
           <Input />
