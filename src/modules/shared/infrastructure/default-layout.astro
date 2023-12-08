@@ -1,0 +1,28 @@
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Gestión de empleados" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Gestión de empleados</title>
+    <style id="holderStyle">
+      /* Not only antd, but also any other style if you want to use ssr. */
+      *, *::before, *::after {
+        transition: none!important;
+      }
+    </style>
+	</head>
+	<body style="height: 100vh; margin: 0px; padding: 0px;">
+    <slot />
+    <script>
+      if (typeof window !== "undefined") {
+        window.onload = () => {
+          document.getElementById("holderStyle")?.remove();
+        };
+      }
+    </script>
+	</body>
+</html>
