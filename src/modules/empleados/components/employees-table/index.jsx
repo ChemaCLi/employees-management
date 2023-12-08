@@ -1,7 +1,7 @@
 import React from "react"
 import { Table } from "antd"
 
-export const EmployeesTable = ({ employees = [] }) => {
+export const EmployeesTable = ({ empleados = [], loading = false }) => {
   const columns = [
     {
       title: "No. de empleado",
@@ -34,7 +34,8 @@ export const EmployeesTable = ({ employees = [] }) => {
     <Table
       scroll={{ x: true }}
       rowKey={record => record.id}
-      dataSource={employees}
+      dataSource={empleados}
+      loading={loading}
       columns={columns}
     />
   )

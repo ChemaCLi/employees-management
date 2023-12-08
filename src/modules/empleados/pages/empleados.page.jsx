@@ -4,9 +4,14 @@ import { UserLayout } from '../../shared/application/layouts/user-layout'
 import { EmployeesTable } from '../components/employees-table'
 import { EmployeesUtilityModal } from '../components/employees-utility-modal'
 import { AntdModalAdapter } from '../../shared/infrastructure/antd-modal-adapter'
+import { useQuery } from "@tanstack/react-query";
+import { EmpleadoService } from '../services'
+import { useService } from '../../shared/application/hooks/use-service'
 
 export const EmpleadosPage = () => {
   const employeeModalRef = React.useRef(null)
+
+  const empleadosResponse = useService(EmpleadoService.getEmpleados)
 
   return (
     <UserLayout
@@ -33,7 +38,7 @@ export const EmpleadosPage = () => {
             </Button>
           </Col>
         </Row>
-      <EmployeesTable />
+      <EmployeesTable empleados={empleadosResponse.data} loading={empleadosResponse.loading} />
     </UserLayout>
   )
 }
