@@ -13,7 +13,6 @@ export const EmployeesUtilityModal = ({
 }) => {
   const [saving, setSaving] = useState(false)
   const [empleadoForm] = Form.useForm()
-
   const resetModal = () => {
     empleadoForm.resetFields()
     closeModal && closeModal()
