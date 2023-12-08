@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "prisma generate && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
